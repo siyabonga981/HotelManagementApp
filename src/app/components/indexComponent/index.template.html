@@ -1,0 +1,284 @@
+<div fxLayout="column wrap" class="fullWidth" fxLayoutAlign="center space-between" [fxShow]="true" [fxHide]="false" fxFill>
+  <bh-toolbar class="fullWidth"></bh-toolbar>
+  <div fxLayout="row wrap" class="homeBg" fxLayoutAlign="space-evenly center" [fxShow]="true" [fxHide]="false" fxLayout.lt-sm="column">
+    <div fxLayout="column wrap" class="fullWidth" fxFlex="55" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" fxFlex.sm="90" fxFlex.xs="90">
+      <div>
+        <div>
+          <h1 class="mainHeading colorWhite"> Discover the balance of comfort and harmony<h1>
+
+            </h1>
+          </h1>
+        </div>
+        <div>
+          <p class="introPara colorWhite"> We are focused on providing our clients with the highest level of quality and excellent customer support.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div fxLayout="column wrap" class="formWrapper" fxFlex="25" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+      <form [formGroup]="bookForm" class="fullWidth bookForm">
+        <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="none center" [fxShow]="true" [fxHide]="false">
+            <div>
+              <h3> Make a booking with us </h3>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+            <mat-form-field class="fullWidth" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput type="text" placeholder="Your Name" [required]="false" formControlName="clientName" pattern="[a-zA-Z ]*">
+
+            </mat-form-field>
+            <div>
+              <div class="alignLeft">
+                <span class="error" *ngIf="
+                bookForm.get(&apos;clientName&apos;).touched &amp;&amp;
+                bookForm.get(&apos;clientName&apos;).hasError(&apos;required&apos;)
+              ">Name field is required</span>
+              </div>
+              <div class="alignLeft">
+                <span class="error" *ngIf="
+                bookForm.get(&apos;clientName&apos;).touched &amp;&amp;
+                bookForm.get(&apos;clientName&apos;).hasError(&apos;pattern&apos;)
+              ">Name field cannot contain characters or numbers</span>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+            <mat-form-field class="fullWidth" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput type="email" placeholder="Your Email" [required]="false" formControlName="email">
+
+            </mat-form-field>
+            <div>
+              <div class="alignLeft">
+                <span class="error alignLeft" *ngIf="
+                bookForm.get(&apos;email&apos;).touched &amp;&amp;
+                bookForm.get(&apos;email&apos;).hasError(&apos;required&apos;)
+              ">Email is required
+            </span>
+                <span class="error alignLeft" *ngIf="
+                bookForm.get(&apos;email&apos;).touched &amp;&amp;
+                bookForm.get(&apos;email&apos;).hasError(&apos;email&apos;)
+              ">Enter a valid email
+            </span>
+                <p class="error alignLeft" *ngIf="
+                bookForm.get(&apos;email&apos;).touched &amp;&amp;
+                bookForm.get(&apos;email&apos;).hasError(&apos;minlength&apos;)
+              ">
+                  Email has to be 4 characters or more.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+            <mat-form-field class="fullWidth" [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;" [hideRequiredMarker]="false">
+              <input matInput type="number" placeholder="Your Phone" [required]="false" formControlName="phone">
+
+            </mat-form-field>
+            <div>
+              <div class="alignLeft">
+                <span class="error alignLeft" *ngIf="
+                bookForm.get(&apos;phone&apos;).touched &amp;&amp;
+                bookForm.get(&apos;phone&apos;).hasError(&apos;required&apos;)
+              ">Phone field is required
+            </span>
+                <p class="error alignLeft" *ngIf="
+                bookForm.get(&apos;phone&apos;).touched &amp;&amp;
+                bookForm.get(&apos;phone&apos;).hasError(&apos;minlength&apos;)
+              ">
+                  Phone no. has to be a minimum of 10 digits.
+                </p>
+                <p class="error alignLeft" *ngIf="
+              bookForm.get(&apos;phone&apos;).touched &amp;&amp;
+              bookForm.get(&apos;phone&apos;).hasError(&apos;maxlength&apos;)
+            ">
+                  Phone no. cannot exceed 13 digits.
+                </p>
+                <p class="error alignLeft" *ngIf="
+                bookForm.get(&apos;phone&apos;).touched &amp;&amp;
+                bookForm.get(&apos;phone&apos;).hasError(&apos;pattern&apos;)
+              ">
+                  No characters allowed. Numbers only!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;auto&apos;">
+              <mat-select style="width: 100%" formControlName="bookingType" placeholder="Select Hotel Service" [required]="true">
+                <mat-option [value]="&apos;Standard&apos;" disabled="false">Standard</mat-option>
+                <mat-option [value]="&apos;Premium&apos;" disabled="false">Premium</mat-option>
+                <mat-option [value]="&apos;Executive&apos;" disabled="false">Executive</mat-option>
+              </mat-select>
+
+            </mat-form-field>
+            <div>
+              <div class="alignLeft">
+                <span class="error alignLeft" *ngIf="
+                bookForm.get(&apos;bookingType&apos;).touched &amp;&amp;
+                bookForm.get(&apos;bookingType&apos;).hasError(&apos;required&apos;)
+              ">Hotel Service is required
+            </span>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false">
+            <mat-form-field class="fullWidth" [appearance]="&apos;outline&apos;">
+              <input matInput placeholder="Click icon to select booking date" [matDatepicker]="picker" formControlName="bookingDate" [required]="false" [disabled]="false">
+              <mat-datepicker-toggle matSuffix [for]="picker" disabled="false"></mat-datepicker-toggle>
+              <mat-datepicker #picker color="primary" [disabled]="false"></mat-datepicker>
+
+            </mat-form-field>
+            <div>
+              <div class="alignLeft">
+                <span class="error alignLeft" *ngIf="
+                bookForm.get(&apos;bookingDate&apos;).touched &amp;&amp;
+                bookForm.get(&apos;bookingDate&apos;).hasError(&apos;required&apos;)
+              ">Booking Date is required
+            </span>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxFlex="100" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false"><button mat-raised-button class="primary bookBtn fullWidth" color="primary" (click)="addBooking()" [disabled]="bookForm.invalid" type="submit">Submit Booking</button></div>
+        </div>
+        <p>
+          {{ bookingStatus }}
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+<div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="row wrap" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" fxFlex="80" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+      <div class="mt50 alignCenter">
+        <h1>Hotel Rooms</h1>
+        <p>Get the most of our hotel specials. Enjoy the modern comfort and panoramic views.</p>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="column wrap" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false">
+    <mat-tab-group mat-align-tabs="center">
+      <mat-tab label="Standard" class="tabContent">
+        <div fxLayout="row wrap" class="mt20" fxLayoutAlign="space-evenly center" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxFlex="35" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false" fxFlex.xs="80" fxFlex.sm="40"><img imgSrc="img/standard.jpg" class="fullWidth"></div>
+          <div fxLayout="column wrap" fxFlex="40" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" fxFlex.xs="80">
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div>
+                <h1>Standard Room - City View</h1>
+                <p class="p10">With this reservation you have access to the following : </p>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Complimentary Wi-Fi </span>
+                </div>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Best Rates </span>
+                </div>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Breakfast </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Premium" class="tabContent">
+        <div fxLayout="row wrap" class="mt20" fxLayoutAlign="space-evenly center" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxFlex="35" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false" fxFlex.xs="80" fxFlex.sm="40"><img imgSrc="img/premium.jpg" class="fullWidth"></div>
+          <div fxLayout="column wrap" fxFlex="40" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" fxFlex.xs="80">
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div>
+                <h1>Premium Room - City View</h1>
+                <p class="p10">With this reservation you have access to the following : </p>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Unlimited Wi-Fi </span>
+                </div>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Room Service </span>
+                </div>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Breakfast </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+      <mat-tab label="Executive">
+        <div fxLayout="row wrap" class="mt20" fxLayoutAlign="space-evenly center" [fxShow]="true" [fxHide]="false">
+          <div fxLayout="column wrap" fxFlex="35" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false" fxFlex.xs="80" fxFlex.sm="40"><img imgSrc="img/executive.jpg" class="fullWidth"></div>
+          <div fxLayout="column wrap" fxFlex="40" fxLayoutAlign="start start" [fxShow]="true" [fxHide]="false" fxFlex.xs="80">
+            <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+              <div>
+                <h1>Executive Room - Beach View</h1>
+                <p class="p10">With this reservation you have access to the following : </p>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Unlimited Wi-Fi </span>
+                </div>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> 1 Free Night </span>
+                </div>
+                <div class="benefitItem m15"><span class="material-icons icon primaryColor"> check_circle </span> <span class="colorGray mt6"> Room Service </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+<div fxLayout="column wrap" class="parallaxBg fullWidth height400 mt50" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="row wrap" class="parallaxOverlay height400" fxLayoutAlign="space-around center" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" class="fullWidth" fxFlex="35" fxLayoutAlign="end center" [fxShow]="true" [fxHide]="false" fxFlex.sm="40" fxFlex.xs="40">
+      <div class="fullWidth">
+        <iframe height="350px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.061154759863!2d28.036454000000003!3d-26.031555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9573e6afa38ee5%3A0xa62c18354ffdb4b8!2sLavender%20Lane!5e0!3m2!1sen!2sza!4v1612207871503!5m2!1sen!2sza" class="fullWidth" frameborder="0" style="border:0;" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+      </div>
+    </div>
+    <div fxLayout="column wrap" fxFlex="35" fxLayoutAlign="start center" [fxShow]="true" [fxHide]="false" fxFlex.sm="45" fxFlex.xs="40">
+      <mat-card class="fullWidth card">
+        <mat-card-title align="center">Contact Details</mat-card-title>
+
+        <mat-card-content align="left">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div>
+              <div class="benefitItem m15"><span class="material-icons icon primaryColor"> room </span> <span class="colorGray mt6"> Lavendar Lane</span>
+              </div>
+              <div class="benefitItem m15"><span class="material-icons icon primaryColor"> call </span> <span class="colorGray mt6"> 011 029 9865 </span>
+              </div>
+              <div class="benefitItem m15"><span class="material-icons icon primaryColor"> email </span> <span class="colorGray mt6"> info@hotel.co.za </span>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" fxLayoutAlign="end stretch" [fxShow]="true" [fxHide]="false">
+                <p>
+                  Weekdays</p>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <p>
+                  10AM - 6PM</p>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" fxLayoutAlign="end stretch" [fxShow]="true" [fxHide]="false">
+                <p>
+                  Weekends</p>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+                <p>
+                  10AM - 2PM</p>
+              </div>
+            </div>
+          </div>
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" [fxShow]="true" [fxHide]="false">
+              <div fxLayout="column wrap" fxLayoutAlign="end stretch" [fxShow]="true" [fxHide]="false">
+                <p>
+                  Holidays</p>
+              </div>
+              <div fxLayout="column wrap" fxLayoutAlign="end end" [fxShow]="true" [fxHide]="false">
+                <p>
+                  10AM - 12PM</p>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<bh-toolbar></bh-toolbar>

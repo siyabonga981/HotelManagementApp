@@ -1,0 +1,13 @@
+<div fxLayout="column wrap" class="toolbar" fxFlex="100" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+  <div fxLayout="row " class="primary fullWidth" fxFlex="100" fxLayoutAlign="space-between center" [fxShow]="true" [fxHide]="false">
+    <div fxLayout="column wrap" fxFlex="30" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false"><img imgSrc="img/logo.png" class="logo"></div>
+    <div fxLayout="column wrap" style="padding-right: 50px;" fxFlex="50" fxLayoutAlign="center end" [fxShow]="true" [fxHide]="false">
+      <div fxLayout="column wrap" fxLayoutAlign="center end" [fxShow]="true" [fxHide]="false">
+        <div [matMenuTriggerFor]="menu">
+          <span class="material-icons colorWhite">menu</span>
+        </div>
+      </div>
+      <mat-menu #menu="matMenu" hasBackdrop="true"><button mat-menu-item routerLink="../index"> <span class="material-icons menuIcon primaryColor colorWhite">home</span>Home </button><button mat-menu-item routerLink="../mybookings"> <span class="material-icons menuIcon primaryColor colorWhite">today</span>My Bookings </button><button mat-menu-item (click)="logout()"> <span class="material-icons menuIcon primaryColor colorWhite">power_settings_new</span>Logout </button></mat-menu>
+    </div>
+  </div>
+</div>
